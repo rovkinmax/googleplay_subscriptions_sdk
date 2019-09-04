@@ -2,7 +2,7 @@
 
 ## Apptilaus Subscriptions SDK for Android (Google Play)
 
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Analyse%20subscriptions%20for%20your%20app!%20No%20SDK%20required!%20&url=http://apptilaus.com&hashtags=subscriptions,apps,appstore,android,googleplay,analytics)&nbsp;[![Platform](http://img.shields.io/badge/platform-android-blue.svg?style=flat)](http://android.com)&nbsp;[![Language](http://img.shields.io/badge/language-kotlin-brightgreen.svg?style=flat)](https://github.com/Apptilaus/unity_subscriptions_sdk/)&nbsp;[![License](https://img.shields.io/github/license/Apptilaus/android_subscriptions_sdk.svg?style=flat)](https://github.com/Apptilaus/googleplay_subscriptions_sdk/)&nbsp;
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Analyse%20subscriptions%20for%20your%20app!%20No%20SDK%20required!%20&url=http://apptilaus.com&hashtags=subscriptions,apps,appstore,android,googleplay,analytics)&nbsp;[![Platform](http://img.shields.io/badge/platform-android-blue.svg?style=flat)](http://android.com)&nbsp;[![Language](http://img.shields.io/badge/language-kotlin-brightgreen.svg?style=flat)](https://github.com/Apptilaus/unity_subscriptions_sdk/)&nbsp;[![License](https://img.shields.io/github/license/Apptilaus/googleplay_subscriptions_sdk.svg?style=flat)](https://github.com/Apptilaus/googleplay_subscriptions_sdk/)&nbsp;
 
 ## Overview ##
 
@@ -36,7 +36,7 @@ Apptilaus SDK requires Android API 15 or higher.
 
 ### <a id="prerequisite"></a>Prerequisite 
 
-The example of ApptilausSDK is based on `com.android.billingclient.api` however you can use ApptilausSDK with your type of integration.
+The example of Apptilaus SDK is based on `com.android.billingclient.api` however you can use Apptilaus SDK with your type of integration.
 
 -----
 

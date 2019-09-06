@@ -1,18 +1,15 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
-    compileSdkVersion 28
-
-
+    compileSdkVersion 29
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
-
-//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionName rootProject.ext.targetVersion
     }
 
     buildTypes {
@@ -32,6 +29,91 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
-repositories {
-    mavenCentral()
+project.archivesBaseName = 'subscriptions'
+group = rootProject.ext.groupId // Maven Group ID for the artifact
+def gitUrl = 'https://github.com/Apptilaus/googleplay_subscriptions_sdk.git'
+def siteUrl = 'https://apptilaus.com/'
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom.project {
+            packaging 'aar'
+            groupId rootProject.ext.groupId
+            artifactId 'subscriptions'
+            version rootProject.ext.targetVersion
+            name 'Apptilaus Subscriptions'
+            modelVersion = '4.0.0'
+            description = 'Apptilaus Subscriptions SDK for Android (Google Play)'
+            url = siteUrl
+            inceptionYear '2019'
+            licenses {
+                license {
+                    name 'MIT'
+                    url 'https://opensource.org/licenses/MIT'
+                    distribution 'repo'
+                }
+            }
+            developers {
+                developer {
+                    name 'Apptilaus'
+                    organization = 'Apptilaus'
+                    organizationUrl siteUrl
+                }
+            }
+
+            scm {
+                connection gitUrl
+                developerConnection gitUrl
+                url siteUrl
+
+            }
+        }
+    }
+}
+
+version = rootProject.ext.targetVersion // Library version
+
+Properties properties = new Properties()
+properties.load(project.file('local.properties').newDataInputStream())
+
+bintray {
+    // User and ApiKey stored in local.properties
+    user = properties.getProperty("bintrayUser")
+    key = properties.getProperty("bintrayApiKey")
+
+    configurations = ['archives']
+    // Package info for Bintray
+    pkg {
+        repo = 'subscriptions'
+        name = 'subscriptions'
+        licenses = ['MIT']
+        vcsUrl = gitUrl
+        publish = true
+        version {
+            gpg {
+                sign = false
+            }
+            mavenCentralSync { // this is optional
+                //[Default: true] Determines whether to sync the version to Maven Central.
+                sync = false
+            }
+        }
+    }
+}
+
+// Dependency to call only bintrayUpload task
+bintrayUpload.dependsOn install
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+artifacts {
+    archives sourcesJar
 }

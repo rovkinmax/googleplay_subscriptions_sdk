@@ -43,7 +43,22 @@ The example of Apptilaus SDK is based on `com.android.billingclient.api` however
 ### <a id="sdk-add"></a>Integration
 
 
-To integrate Apptilaus SDK into your project, update your App level `build.gradle` to look like this:
+To integrate Apptilaus SDK into your project, add the following Maven repository url to your Project level `build.gradle` like this:
+
+```
+
+allprojects {
+    repositories {
+        maven {
+            url "https://dl.bintray.com/apptilaus/maven"
+        }
+        ....
+    }
+}
+ 
+```
+
+Update your App level `build.gradle` to look like this:
 
 ```
 
@@ -214,22 +229,22 @@ Build and run your app. If the build succeeds, you should carefully read the SDK
 
 ---
 
-[apptilaus.com]:			https://apptilaus.com
-[admin-panel]:				https://go.apptilaus.com
+[apptilaus.com]:            https://apptilaus.com
+[admin-panel]:              https://go.apptilaus.com
 
-[releases]:					https://github.com/Apptilaus/android_subscriptions_sdk/releases
+[releases]:                 https://github.com/Apptilaus/android_subscriptions_sdk/releases
 
-[advertising-id]:			https://www.androiddocs.com/google/play-services/id.html
-[android-x]:				https://developer.android.com/jetpack/androidx/migrate#migrate
+[advertising-id]:           https://www.androiddocs.com/google/play-services/id.html
+[android-x]:                https://developer.android.com/jetpack/androidx/migrate#migrate
 
-[Examples]:					Examples/
-[Example-iOS]:				Examples/Example-iOS
-[Example-Android]:			Examples/Example-Android
-[partmer-docs]:				Docs/English/
-[partmer-docs-adjust]:		Docs/English/adjust.md
-[partmer-docs-amplitude]:	Docs/English/amplitude.md
-[partmer-docs-appmetrica]:	Docs/English/appmetrica.md
-[partmer-docs-appsflyer]:	Docs/English/appsflyer.md
+[Examples]:                 Examples/
+[Example-iOS]:              Examples/Example-iOS
+[Example-Android]:          Examples/Example-Android
+[partmer-docs]:             Docs/English/
+[partmer-docs-adjust]:      Docs/English/adjust.md
+[partmer-docs-amplitude]:   Docs/English/amplitude.md
+[partmer-docs-appmetrica]:  Docs/English/appmetrica.md
+[partmer-docs-appsflyer]:   Docs/English/appsflyer.md
 
 ## <a id="licence"></a>Licence and Copyright
 

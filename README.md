@@ -55,7 +55,6 @@ allprojects {
         ....
     }
 }
-
 ```
 
 Update your App level `build.gradle` to look like this:
